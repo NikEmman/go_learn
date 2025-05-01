@@ -2,6 +2,7 @@ package main
 
 import "fmt"
 
+// arrays loops
 func main1() {
 	intArr := [...]int32{1, 2, 3}
 	fmt.Println((intArr))

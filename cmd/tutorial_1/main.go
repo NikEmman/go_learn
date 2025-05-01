@@ -1,41 +1,31 @@
 package main
 
-import (
-	"errors"
-	"fmt"
-)
+import "fmt"
 
 func main() {
-	printMe()
-	var intNum int
-	fmt.Println(intNum)
+	intArr := [...]int32{1, 2, 3}
+	fmt.Println((intArr))
 
-	var floatNum float32
-	fmt.Println(floatNum)
+	var intSlice []int32 = []int32{4, 5, 6}
 
-	var number1 int = 10
-	var number2 int = 2
-	var result, remainder, err = intDivision(number1, number2)
-	if err != nil {
-		fmt.Printf(err.Error())
-	} else if remainder == 0 {
-		fmt.Printf("The result of the integer division is %v", result)
-	} else {
-		fmt.Printf("The result of the integer division is %v with remainder %v", result, remainder)
+	fmt.Printf("The length is %v with capacity %v \n", len(intSlice), cap(intSlice))
+	intSlice = append(intSlice, 7)
+	fmt.Printf("The length is %v with capacity %v \n", len(intSlice), cap(intSlice))
+	var intSlice2 []int32 = []int32{8, 9}
+	intSlice = append(intSlice, intSlice2...)
+	fmt.Printf("The length is %v with capacity %v \n", len(intSlice), cap(intSlice))
+
+	var myMap map[string]uint8 = make(map[string]uint8)
+	fmt.Println((myMap))
+	var myMap2 = map[string]uint8{"Adam": 28, "Sarah": 45}
+	fmt.Println(myMap2)
+	for name, age := range myMap2 {
+		fmt.Printf("Name: %v, Age: %v", name, age)
 	}
-}
-func printMe() {
-	fmt.Println("hello world!")
-
-}
-func intDivision(numerator int, denominator int) (int, int, error) {
-	var err error
-	if denominator == 0 {
-		err = errors.New("Cannot divide by zero")
-		return 0, 0, err
+	for i, v := range intArr {
+		fmt.Printf("Index:%v, Value:%v", i, v)
 	}
-	var result int = numerator / denominator
-	var remainder int = numerator % denominator
-	return result, remainder, err
-
+	for i := 0; i < 10; i++ {
+		fmt.Println(i)
+	}
 }

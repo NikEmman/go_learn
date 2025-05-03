@@ -38,7 +38,7 @@ func (e gasEngine) milesLeft() uint8 {
 	return e.gallons * e.mpg
 }
 
-func main() {
+func main3() {
 	var myEngine gasEngine = gasEngine{mpg: 25, gallons: 15, ownerInfo: owner{"Bob"}}
 	// struct fields can also be assigned like (25,15, owner{"Bob"}) or myEngine.mg=25. fields can be anything, even other structs
 

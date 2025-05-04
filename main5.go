@@ -42,6 +42,7 @@ func dbCall(i int){
 
 	//we call Done() to remove a counter  from the wait group
 	wg.Done()
+	// or, we could also use the special keyword "defer" and type at the top of dbCall() the done call, like this: `defer wg.Done()`
 
 }
 
